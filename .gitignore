@@ -6,5 +6,5 @@
 client/node_modules
 
 # ENV Files
-.env
+client/.env
 yarn.lock

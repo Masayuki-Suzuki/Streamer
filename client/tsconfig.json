@@ -23,11 +23,6 @@
     "noEmit": true,
     "noImplicitAny": false,
     "noImplicitThis": false,
-    "paths": {
-      "~/*": [
-        "./src/*"
-      ]
-    },
     "removeComments": true,
     "resolveJsonModule": true,
     "sourceMap": true,
@@ -37,7 +32,9 @@
     "suppressImplicitAnyIndexErrors": false,
     "target": "esnext",
     "types": [
-      "@types/node"
+      "@types/node",
+      "@types/gapi",
+      "@types/gapi.auth2"
     ]
   },
   "include": [
