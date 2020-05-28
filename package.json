@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@types/redux-form": "^8.2.6",
+    "redux-form": "^8.3.5"
+  }
+}
