@@ -1,13 +1,15 @@
 import React from 'react'
 import { Field, InjectedFormProps, reduxForm } from 'redux-form'
+import { connect } from 'react-redux'
+import { CreateStream, FormValues } from 'src/types/actions'
+import { createStream } from '../../actions'
 
-type StreamCreateState = Record<string, unknown>
-type FormValues = {
-    title?: string
-    description?: string
+type StreamCreateProps = InjectedFormProps & {
+    createStream?: CreateStream
 }
+type StreamCreateState = Record<string, unknown>
 
-class StreamCreate extends React.Component<InjectedFormProps, StreamCreateState> {
+class StreamCreate extends React.Component<StreamCreateProps, StreamCreateState> {
     renderError({ error, touched }) {
         if (touched && error) {
             return (
@@ -31,8 +33,10 @@ class StreamCreate extends React.Component<InjectedFormProps, StreamCreateState>
         )
     }
 
-    onSubmit(formValues: FormValues) {
-        console.log(formValues)
+    onSubmit = async (formValues: FormValues) => {
+        if (this.props.createStream) {
+            await this.props.createStream(formValues)
+        }
     }
 
     render(): JSX.Element {
@@ -60,7 +64,9 @@ const validate = (formValues: FormValues): FormValues => {
     return errors
 }
 
-export default reduxForm({
+const formWrapped = reduxForm({
     form: 'streamCreate',
     validate
 })(StreamCreate)
+
+export default connect(null, { createStream })(formWrapped)

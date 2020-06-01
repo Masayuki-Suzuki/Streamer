@@ -1,6 +1,7 @@
 import 'semantic-ui-css/semantic.min.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import reduxThunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import { createStore, compose, applyMiddleware } from 'redux'
 import App from './components/App'
@@ -16,7 +17,7 @@ declare var window: ExWindow
 const composeReduxDevToolsEnhancers =
     (typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
 
-const store = createStore(reducers, composeReduxDevToolsEnhancers(applyMiddleware()))
+const store = createStore(reducers, composeReduxDevToolsEnhancers(applyMiddleware(reduxThunk)))
 
 ReactDOM.render(
     <Provider store={store}>

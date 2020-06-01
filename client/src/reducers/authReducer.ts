@@ -7,7 +7,7 @@ const INITIAL_STATE: Authentication = {
     userId: null
 }
 
-export default (state: Authentication = INITIAL_STATE, action: SignIn | SignOut): Authentication => {
+export default (state = INITIAL_STATE, action: SignIn | SignOut): Authentication => {
     switch (action.type) {
         case SIGN_IN:
             return { ...state, isSignedIn: true, userId: action.payload }
