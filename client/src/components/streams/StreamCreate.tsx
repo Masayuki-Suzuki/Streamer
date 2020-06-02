@@ -1,13 +1,12 @@
 import React from 'react'
-import { Field, InjectedFormProps, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import { CreateStream, FormValues } from 'src/types/actions'
 import { Nullable } from '../../types/utilities'
 import { createStream } from '../../actions'
 import StreamForm from './StreamForm'
 
-type StreamCreateProps = InjectedFormProps & {
-    createStream?: CreateStream
+type StreamCreateProps = {
+    createStream: CreateStream
 }
 type StreamCreateState = {
     errorMessage: Nullable<string>
@@ -15,9 +14,7 @@ type StreamCreateState = {
 
 class StreamCreate extends React.Component<StreamCreateProps, StreamCreateState> {
     onSubmit = async (formValues: FormValues) => {
-        if (this.props.createStream) {
-            await this.props.createStream(formValues)
-        }
+        await this.props.createStream(formValues)
     }
 
     render(): JSX.Element {

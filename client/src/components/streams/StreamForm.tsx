@@ -39,7 +39,7 @@ class StreamForm extends React.Component<StreamFormPropsType, StreamFormState> {
         )
     }
 
-    onSubmit = async (formValues: FormValues) => {
+    onSubmit = (formValues: FormValues) => {
         if (this.props.onSubmit) {
             try {
                 this.props.onSubmit(formValues)

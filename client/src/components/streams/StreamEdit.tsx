@@ -1,20 +1,16 @@
-import * as H from 'history'
 import React from 'react'
-import { match } from 'react-router-dom'
 import { State, Stream } from 'src/types/state'
 import { connect } from 'react-redux'
 import { fetchStream, editStream } from '../../actions'
 import { FormValues } from '../../types/actions'
+import { RouterProps } from '../../types/routerProps'
 import StreamForm from './StreamForm'
 
-type Params = {
+type RouterPropsMatchParams = {
     id: string
 }
 
-type StreamEditPropsType = {
-    match: match<Params>
-    location: H.Location
-    history: H.History
+type StreamEditPropsType = RouterProps<RouterPropsMatchParams> & {
     stream: Stream
     fetchStream: (id: string) => void
     editStream: (id: string, formValues: FormValues) => void
@@ -23,12 +19,11 @@ type StreamEditPropsType = {
 type StreamEditState = unknown
 
 class StreamEdit extends React.Component<StreamEditPropsType, StreamEditState> {
-    componentDidMount() {
+    componentDidMount(): void {
         this.props.fetchStream(this.props.match.params.id)
     }
 
-    onSubmit = (formValues: FormValues) => {
-        console.log(formValues)
+    onSubmit = (formValues: FormValues): void => {
         this.props.editStream(this.props.match.params.id, formValues)
     }
 
