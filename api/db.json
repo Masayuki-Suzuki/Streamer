@@ -3,7 +3,26 @@
     {
       "title": "My stream",
       "description": "This is a great stream.",
+      "userId": "113743245489933361402",
       "id": 1
+    },
+    {
+      "title": "Other Stream",
+      "description": "Here's some stream.",
+      "userId": "113743245489933361402",
+      "id": 2
+    },
+    {
+      "title": "What the fuck awesome stream.",
+      "description": "This is really awesome stream!!",
+      "userId": "113743245489933361402",
+      "id": 3
+    },
+    {
+      "title": "Me streaming component reuse!",
+      "description": "Watch me refactor some components.",
+      "userId": "113743245489933361402",
+      "id": 4
     }
   ]
 }

@@ -1,4 +1,6 @@
 import { Dispatch } from 'redux'
+import { State } from './state'
+import { ThunkAction } from 'redux-thunk'
 
 export type SignIn = {
     type: 'SIGN_IN'
@@ -16,4 +18,6 @@ export type FormValues = {
 
 export type CreateStream = (formValue: FormValues) => CreateStreamDispatch
 
-export type DispatchFunction = (dispatch: Dispatch) => Promise<void>
+export type DispatchFunction = ThunkAction<Promise<void>, State>
+
+export type GetState = () => State
