@@ -5,6 +5,7 @@
 # modules
 client/node_modules
 api/node_modules
+rtmpserver/node_modules
 
 # ENV Files
 client/.env
